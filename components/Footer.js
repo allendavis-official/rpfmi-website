@@ -19,7 +19,7 @@ export default function Footer({ settings }) {
               {settings?.tagline || "The House of Restoration"}
             </p>
             <p className="text-gray-400">
-              Transforming lives through the power of God's Word
+              Transforming lives through the power of God&apos;s Word
             </p>
           </div>
 
