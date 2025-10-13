@@ -114,10 +114,10 @@ export default async function HomePage() {
               </h3>
               <p className="text-gray-600 mb-4 leading-relaxed">
                 At Redemption Praise Fire Ministry International, we are
-                committed to restoring lives through the power of God's Word and
-                the presence of the Holy Spirit. We believe in creating a
-                welcoming environment where everyone can encounter God's love
-                and experience true transformation.
+                committed to restoring lives through the power of God&apos;s
+                Word and the presence of the Holy Spirit. We believe in creating
+                a welcoming environment where everyone can encounter God&apos;s
+                love and experience true transformation.
               </p>
               <p className="text-gray-600 mb-4 leading-relaxed">
                 Our mission is to equip believers to live victoriously, serve
@@ -311,8 +311,8 @@ export default async function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold mb-4">Ready to Join Us?</h2>
           <p className="text-xl mb-8 text-red-100 max-w-2xl mx-auto">
-            We'd love to welcome you to our church family. Plan your first visit
-            today!
+            We&apos;d love to welcome you to our church family. Plan your first
+            visit today!
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
