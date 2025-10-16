@@ -37,7 +37,7 @@ export default function Hero({ heroData }) {
   };
 
   return (
-    <section className="relative min-h-[600px] md:min-h-[700px] flex items-center justify-center">
+    <section className="relative min-h-[600px] md:min-h-[800px] flex items-center justify-center pb-32">
       {/* Background Image or Gradient */}
       {backgroundImage ? (
         <div className="absolute inset-0 z-0">
@@ -80,7 +80,7 @@ export default function Hero({ heroData }) {
                 key={index}
                 href={button.link || "#"}
                 className={`
-                  px-8 py-3 rounded-lg text-lg font-semibold 
+                  px-8 py-3 rounded-full text-lg font-semibold 
                   transition-all duration-300 transform hover:scale-105
                   border-2 shadow-lg
                   ${getButtonStyle(button.style)}
@@ -94,7 +94,7 @@ export default function Hero({ heroData }) {
       </div>
 
       {/* Optional: Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
+      <div className="absolute bottom-40 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
         <svg
           className="w-6 h-6 text-white opacity-75"
           fill="none"

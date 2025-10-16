@@ -7,8 +7,8 @@ export default defineConfig({
   name: 'default',
   title: 'RPFMI - Admin Dashboard',
 
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'kxp18f70',
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
+  projectId: 'kxp18f70',
+  dataset: 'production',
 
   plugins: [
     structureTool({

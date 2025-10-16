@@ -4,8 +4,9 @@ import { sermonsQuery, eventsQuery, settingsQuery } from "@/lib/queries";
 import SermonCard from "@/components/SermonCard";
 import EventCard from "@/components/EventCard";
 import Hero from "@/components/Hero";
+import HeroCards from "@/components/HeroCards";
+import ImpactStats from "@/components/ImpactStats";
 import { Clock, ChevronRight } from "lucide-react";
-import settings from "@/sanity/schemas/settings";
 
 async function getHomeData() {
   try {
@@ -79,6 +80,12 @@ export default async function HomePage() {
       {/* Dynamic Hero Section */}
       <Hero heroData={heroData} />
 
+      {/* Hero Cards Section */}
+      <HeroCards />
+
+      {/* Impact Stats Section */}
+      <ImpactStats />
+
       {/* Service Times */}
       <section className="bg-gray-50 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -114,10 +121,10 @@ export default async function HomePage() {
               </h3>
               <p className="text-gray-600 mb-4 leading-relaxed">
                 At Redemption Praise Fire Ministry International, we are
-                committed to restoring lives through the power of God&apos;s
-                Word and the presence of the Holy Spirit. We believe in creating
-                a welcoming environment where everyone can encounter God&apos;s
-                love and experience true transformation.
+                committed to restoring lives through the power of God's Word and
+                the presence of the Holy Spirit. We believe in creating a
+                welcoming environment where everyone can encounter God's love
+                and experience true transformation.
               </p>
               <p className="text-gray-600 mb-4 leading-relaxed">
                 Our mission is to equip believers to live victoriously, serve
@@ -311,8 +318,8 @@ export default async function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold mb-4">Ready to Join Us?</h2>
           <p className="text-xl mb-8 text-red-100 max-w-2xl mx-auto">
-            We&apos;d love to welcome you to our church family. Plan your first
-            visit today!
+            We'd love to welcome you to our church family. Plan your first visit
+            today!
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
