@@ -118,7 +118,7 @@ export default function ImpactStats() {
 
         {/* Subtitle */}
         <p className="text-xl md:text-2xl text-white text-opacity-90 mb-16 max-w-3xl mx-auto">
-          Witnessing God's power transform lives across nations
+          Witnessing God&apos;s power transform lives across nations
         </p>
 
         {/* Stats Grid */}
