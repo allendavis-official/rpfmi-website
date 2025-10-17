@@ -1,25 +1,33 @@
 import Link from "next/link";
 import { client } from "@/lib/sanity";
-import { sermonsQuery, eventsQuery, settingsQuery } from "@/lib/queries";
+import {
+  sermonsQuery,
+  eventsQuery,
+  settingsQuery,
+  heroSectionQuery,
+} from "@/lib/queries";
 import SermonCard from "@/components/SermonCard";
 import EventCard from "@/components/EventCard";
 import Hero from "@/components/Hero";
-import HeroCards from "@/components/HeroCards";
-import ImpactStats from "@/components/ImpactStats";
 import { Clock, ChevronRight } from "lucide-react";
+import GlobalImpact from "@/components/GlobalImpact";
+import Services from "@/components/Services";
+import About from "@/components/About";
+import Newsletter from "@/components/Newsletter";
 
 async function getHomeData() {
   try {
-    const [sermons, events, settings] = await Promise.all([
+    const [sermons, events, settings, heroData] = await Promise.all([
       client.fetch(sermonsQuery),
       client.fetch(eventsQuery),
       client.fetch(settingsQuery),
+      client.fetch(heroSectionQuery),
     ]);
-
     return {
       sermons: sermons?.slice(0, 3) || [],
       events: events?.slice(0, 2) || [],
       settings: settings || null,
+      heroData: heroData || null,
     };
   } catch (error) {
     console.error("Error fetching home data:", error);
@@ -27,6 +35,7 @@ async function getHomeData() {
       sermons: [],
       events: [],
       settings: null,
+      heroSection: null,
     };
   }
 }
@@ -78,35 +87,22 @@ export default async function HomePage() {
       )}
 
       {/* Dynamic Hero Section */}
-      <Hero heroData={heroData} />
-
-      {/* Hero Cards Section */}
-      <HeroCards />
+      <Hero settings={settings} />
 
       {/* Impact Stats Section */}
-      <ImpactStats />
+      <GlobalImpact settings={settings} />
 
-      {/* Service Times */}
-      <section className="bg-gray-50 py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-8">
-            {serviceTimes.map((service, index) => (
-              <div
-                key={index}
-                className="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition"
-              >
-                <Clock className="w-12 h-12 text-red-700 mx-auto mb-4" />
-                <h3 className="text-xl font-bold mb-2">{service.service}</h3>
-                <p className="text-gray-600 font-medium">{service.day}</p>
-                <p className="text-gray-600">{service.time}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Services Section */}
+      <Services settings={settings} />
 
       {/* About Section */}
-      <section className="py-16">
+      <About settings={settings} />
+
+      {/* Newsletter Section */}
+      <Newsletter />
+
+      {/* About Section */}
+      {/* <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -150,7 +146,7 @@ export default async function HomePage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Latest Sermons */}
       <section className="py-16 bg-gray-50">
