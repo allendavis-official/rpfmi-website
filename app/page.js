@@ -18,11 +18,37 @@ import Newsletter from "@/components/Newsletter";
 async function getHomeData() {
   try {
     const [sermons, events, settings, heroData] = await Promise.all([
-      client.fetch(sermonsQuery),
-      client.fetch(eventsQuery),
-      client.fetch(settingsQuery),
-      client.fetch(heroSectionQuery),
+      // Add revalidation tags to each fetch
+      client.fetch(
+        sermonsQuery,
+        {},
+        {
+          next: { tags: ["sermons", "home-page"] },
+        }
+      ),
+      client.fetch(
+        eventsQuery,
+        {},
+        {
+          next: { tags: ["events", "home-page"] },
+        }
+      ),
+      client.fetch(
+        settingsQuery,
+        {},
+        {
+          next: { tags: ["settings", "home-page"] },
+        }
+      ),
+      client.fetch(
+        heroSectionQuery,
+        {},
+        {
+          next: { tags: ["hero", "home-page"] },
+        }
+      ),
     ]);
+
     return {
       sermons: sermons?.slice(0, 3) || [],
       events: events?.slice(0, 2) || [],
@@ -35,7 +61,7 @@ async function getHomeData() {
       sermons: [],
       events: [],
       settings: null,
-      heroSection: null,
+      heroData: null,
     };
   }
 }
